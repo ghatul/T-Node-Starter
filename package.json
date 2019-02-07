@@ -5,9 +5,10 @@
   "main": "dist/index.js",
   "scripts": {
     "lint": "tslint -c tslint.json -p tsconfig.json --fix",
-    "copy": "ts-node /tools",
-    "build": "npm-run-all clean lint tsc copy",
-    "start": "nodemon --watch ./index.ts",
+    "copy": "ts-node ./src/tools",
+    "build": "tsc -w",
+    "start": "npm run build && npm run dev && npm run copy",
+    "serve": "nodemon --exec ./node_modules/.bin/ts-node -- ./src/index.ts",
     "clean": "rimraf dist/*",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "and-or-search": "^1.1.7",
     "express": "^4.16.4"
   },
   "devDependencies": {

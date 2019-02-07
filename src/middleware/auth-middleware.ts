@@ -1,5 +1,8 @@
 
 class AuthMiddleware {
+  constructor() {
+
+  }
 
 }
 
